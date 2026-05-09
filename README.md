@@ -1,6 +1,6 @@
-# Mouzi 🧹
+# Mouzi 🧹🐁
 
-> **Download, forget — it remembers.**
+> **Your downloads, tamed.**
 
 Mouzi is a silent, elegant file organizer that lives in your system tray and keeps your Downloads folder (and any other folder) automatically tidy. It runs quietly in the background, monitors selected folders, and moves, renames, or sorts files based on customizable rules.
 
