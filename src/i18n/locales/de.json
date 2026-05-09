@@ -1,0 +1,58 @@
+{
+  "app": {
+    "name": "Mouzi",
+    "tagline": "Herunterladen, vergessen – es erinnert sich"
+  },
+  "popup": {
+    "title": "Mouzi",
+    "cleanNow": "Jetzt aufräumen",
+    "openDownloads": "Downloads öffnen",
+    "recentActions": "Letzte Aktionen",
+    "noActions": "Keine Aktionen",
+    "weeklyStats": "Diese Woche",
+    "undo": "Rückgängig",
+    "settings": "Einstellungen",
+    "quit": "Beenden"
+  },
+  "settings": {
+    "title": "Mouzi Einstellungen",
+    "folders": {
+      "title": "Überwachte Ordner",
+      "add": "Ordner hinzufügen",
+      "remove": "Entfernen",
+      "mode": "Modus",
+      "silent": "Stumm",
+      "suggest": "Vorschlagen"
+    },
+    "rules": {
+      "title": "Regeln",
+      "add": "Regel hinzufügen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "name": "Name",
+      "extensions": "Erweiterungen",
+      "destination": "Ziel",
+      "pattern": "Muster",
+      "priority": "Priorität",
+      "action": "Aktion",
+      "enabled": "Aktiviert"
+    },
+    "history": {
+      "title": "Verlauf",
+      "clear": "Verlauf löschen",
+      "undo": "Rückgängig",
+      "undone": "Rückgängig gemacht",
+      "empty": "Kein Verlauf"
+    },
+    "general": {
+      "title": "Allgemein",
+      "language": "Sprache",
+      "theme": "Design",
+      "telemetry": "Telemetrie aktivieren",
+      "startWithSystem": "Mit System starten"
+    }
+  },
+  "notifications": {
+    "cleaned": "{{count}} Datei(en) organisiert"
+  }
+}

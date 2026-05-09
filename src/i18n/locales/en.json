@@ -1,0 +1,58 @@
+{
+  "app": {
+    "name": "Mouzi",
+    "tagline": "Download, forget – it remembers"
+  },
+  "popup": {
+    "title": "Mouzi",
+    "cleanNow": "Clean Now",
+    "openDownloads": "Open Downloads",
+    "recentActions": "Recent Actions",
+    "noActions": "No actions yet",
+    "weeklyStats": "This Week",
+    "undo": "Undo",
+    "settings": "Settings",
+    "quit": "Quit"
+  },
+  "settings": {
+    "title": "Mouzi Settings",
+    "folders": {
+      "title": "Watched Folders",
+      "add": "Add Folder",
+      "remove": "Remove",
+      "mode": "Mode",
+      "silent": "Silent",
+      "suggest": "Suggest"
+    },
+    "rules": {
+      "title": "Rules",
+      "add": "Add Rule",
+      "edit": "Edit",
+      "delete": "Delete",
+      "name": "Name",
+      "extensions": "Extensions",
+      "destination": "Destination",
+      "pattern": "Pattern",
+      "priority": "Priority",
+      "action": "Action",
+      "enabled": "Enabled"
+    },
+    "history": {
+      "title": "History",
+      "clear": "Clear History",
+      "undo": "Undo",
+      "undone": "Undone",
+      "empty": "No history"
+    },
+    "general": {
+      "title": "General",
+      "language": "Language",
+      "theme": "Theme",
+      "telemetry": "Enable Telemetry",
+      "startWithSystem": "Start with System"
+    }
+  },
+  "notifications": {
+    "cleaned": "Organized {{count}} file(s)"
+  }
+}

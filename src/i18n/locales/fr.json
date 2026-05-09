@@ -1,0 +1,58 @@
+{
+  "app": {
+    "name": "Mouzi",
+    "tagline": "Téléchargez, oubliez – il se souvient"
+  },
+  "popup": {
+    "title": "Mouzi",
+    "cleanNow": "Nettoyer maintenant",
+    "openDownloads": "Ouvrir Téléchargements",
+    "recentActions": "Actions récentes",
+    "noActions": "Aucune action",
+    "weeklyStats": "Cette semaine",
+    "undo": "Annuler",
+    "settings": "Paramètres",
+    "quit": "Quitter"
+  },
+  "settings": {
+    "title": "Paramètres Mouzi",
+    "folders": {
+      "title": "Dossiers surveillés",
+      "add": "Ajouter un dossier",
+      "remove": "Supprimer",
+      "mode": "Mode",
+      "silent": "Silencieux",
+      "suggest": "Suggérer"
+    },
+    "rules": {
+      "title": "Règles",
+      "add": "Ajouter une règle",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "name": "Nom",
+      "extensions": "Extensions",
+      "destination": "Destination",
+      "pattern": "Modèle",
+      "priority": "Priorité",
+      "action": "Action",
+      "enabled": "Activée"
+    },
+    "history": {
+      "title": "Historique",
+      "clear": "Effacer l'historique",
+      "undo": "Annuler",
+      "undone": "Annulé",
+      "empty": "Aucun historique"
+    },
+    "general": {
+      "title": "Général",
+      "language": "Langue",
+      "theme": "Thème",
+      "telemetry": "Activer la télémétrie",
+      "startWithSystem": "Démarrer avec le système"
+    }
+  },
+  "notifications": {
+    "cleaned": "{{count}} fichier(s) organisé(s)"
+  }
+}

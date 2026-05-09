@@ -1,0 +1,58 @@
+{
+  "app": {
+    "name": "Mouzi",
+    "tagline": "Pobierasz, zapominasz – on pamięta"
+  },
+  "popup": {
+    "title": "Mouzi",
+    "cleanNow": "Posprzątaj teraz",
+    "openDownloads": "Otwórz Pobrane",
+    "recentActions": "Ostatnie akcje",
+    "noActions": "Brak akcji",
+    "weeklyStats": "W tym tygodniu",
+    "undo": "Cofnij",
+    "settings": "Ustawienia",
+    "quit": "Zamknij"
+  },
+  "settings": {
+    "title": "Ustawienia Mouzi",
+    "folders": {
+      "title": "Monitorowane foldery",
+      "add": "Dodaj folder",
+      "remove": "Usuń",
+      "mode": "Tryb",
+      "silent": "Cichy",
+      "suggest": "Podpowiadacz"
+    },
+    "rules": {
+      "title": "Reguły",
+      "add": "Dodaj regułę",
+      "edit": "Edytuj",
+      "delete": "Usuń",
+      "name": "Nazwa",
+      "extensions": "Rozszerzenia",
+      "destination": "Cel",
+      "pattern": "Wzorzec",
+      "priority": "Priorytet",
+      "action": "Akcja",
+      "enabled": "Włączona"
+    },
+    "history": {
+      "title": "Historia",
+      "clear": "Wyczyść historię",
+      "undo": "Cofnij",
+      "undone": "Cofnięto",
+      "empty": "Brak historii"
+    },
+    "general": {
+      "title": "Ogólne",
+      "language": "Język",
+      "theme": "Motyw",
+      "telemetry": "Włącz telemetrię",
+      "startWithSystem": "Uruchamiaj z systemem"
+    }
+  },
+  "notifications": {
+    "cleaned": "Uporządkowano {{count}} plik(i)"
+  }
+}
