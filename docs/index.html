@@ -315,7 +315,7 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      opacity: 0.3;
+      opacity: 0.5;
     }
 
     .hero-overlay {
@@ -986,7 +986,7 @@
   </nav>
 
   <header class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+    <video class="hero-video" autoplay muted loop playsinline>
       <source src="./video_bg.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -1210,6 +1210,17 @@
         navLinks.classList.remove('mobile-open');
       });
     });
+
+    /* ================================================================
+       VIDEO FORCE PLAY
+       ================================================================ */
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+      heroVideo.play().catch(() => {});
+      heroVideo.addEventListener('canplay', () => {
+        heroVideo.play().catch(() => {});
+      });
+    }
 
     /* ================================================================
        SMOOTH SCROLL FOR ANCHORS
