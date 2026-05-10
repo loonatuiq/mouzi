@@ -953,6 +953,33 @@
       margin-bottom: 1.25rem;
     }
 
+    .footer-copy a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .footer-copy a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--primary);
+      transition: width 0.4s var(--ease-out-expo);
+    }
+
+    .footer-copy a:hover {
+      color: #d4c4b5;
+    }
+
+    .footer-copy a:hover::after {
+      width: 100%;
+    }
+
     .footer-links {
       display: flex;
       gap: 1.75rem;
