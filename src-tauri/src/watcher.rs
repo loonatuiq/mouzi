@@ -8,6 +8,8 @@ use std::time::{Duration, Instant};
 use tauri::Emitter;
 use tauri_plugin_notification::NotificationExt;
 
+const IGNORE_DURATION_SECS: u64 = 5;
+
 #[derive(Debug, Clone)]
 struct PendingFile {
     path: std::path::PathBuf,
@@ -17,14 +19,16 @@ struct PendingFile {
 pub struct FolderWatcher {
     watchers: HashMap<String, RecommendedWatcher>,
     pending: Arc<Mutex<Vec<PendingFile>>>,
+    ignored_files: Arc<Mutex<HashMap<String, Instant>>>,
     handle: Option<std::thread::JoinHandle<()>>,
 }
 
 impl FolderWatcher {
-    pub fn new() -> Self {
+    pub fn new(ignored_files: Arc<Mutex<HashMap<String, Instant>>>) -> Self {
         Self {
             watchers: HashMap::new(),
             pending: Arc::new(Mutex::new(Vec::new())),
+            ignored_files,
             handle: None,
         }
     }
@@ -105,6 +109,7 @@ impl FolderWatcher {
     pub fn watch_folders(&mut self, app_handle: tauri::AppHandle) -> Result<(), String> {
         let folders = get_watched_folders().map_err(|e| e.to_string())?;
         let pending = self.pending.clone();
+        let ignored = self.ignored_files.clone();
 
         for folder in folders {
             if !folder.enabled {
@@ -112,12 +117,22 @@ impl FolderWatcher {
             }
             let path = folder.path.clone();
             let p = pending.clone();
+            let ig = ignored.clone();
 
             let mut watcher = RecommendedWatcher::new(
                 move |res: Result<Event, notify::Error>| {
                     if let Ok(event) = res {
                         for path in event.paths {
                             if path.is_file() {
+                                let path_str = path.to_string_lossy().to_string();
+                                let mut ignore_guard = ig.lock().unwrap();
+                                if let Some(&instant) = ignore_guard.get(&path_str) {
+                                    if Instant::now().duration_since(instant) < Duration::from_secs(IGNORE_DURATION_SECS) {
+                                        continue;
+                                    }
+                                    ignore_guard.remove(&path_str);
+                                }
+                                drop(ignore_guard);
                                 let mut guard = p.lock().unwrap();
                                 // Remove existing pending entry for this path to reschedule
                                 guard.retain(|x| x.path != path);
@@ -149,5 +164,9 @@ impl FolderWatcher {
     pub fn refresh(&mut self, app_handle: tauri::AppHandle) -> Result<(), String> {
         self.watchers.clear();
         self.watch_folders(app_handle)
+    }
+
+    pub fn set_ignored_files(&mut self, ignored_files: Arc<Mutex<HashMap<String, Instant>>>) {
+        self.ignored_files = ignored_files;
     }
 }

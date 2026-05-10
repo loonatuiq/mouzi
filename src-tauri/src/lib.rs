@@ -7,17 +7,21 @@ pub mod watcher;
 use commands::*;
 use db::init_db;
 use directories::ProjectDirs;
+use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
+use std::time::Instant;
 use tauri::Manager;
 use tauri_plugin_autostart::ManagerExt;
 use watcher::FolderWatcher;
 
 pub struct AppState {
     pub watcher: Arc<Mutex<FolderWatcher>>,
+    pub ignored_files: Arc<Mutex<HashMap<String, Instant>>>,
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+    let ignored_files = Arc::new(Mutex::new(HashMap::new()));
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_notification::init())
@@ -26,7 +30,8 @@ pub fn run() {
             Some(vec!["--autostart"]),
         ))
         .manage(AppState {
-            watcher: Arc::new(Mutex::new(FolderWatcher::new())),
+            watcher: Arc::new(Mutex::new(FolderWatcher::new(ignored_files.clone()))),
+            ignored_files,
         })
         .setup(|app| {
             let app_handle = app.handle().clone();

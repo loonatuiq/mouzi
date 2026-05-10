@@ -1,5 +1,7 @@
 use crate::db::*;
 use crate::rules::manual_scan_folder;
+use crate::AppState;
+use std::time::Instant;
 use tauri::{AppHandle, Manager};
 use tauri_plugin_autostart::ManagerExt;
 use tauri_plugin_notification::NotificationExt;
@@ -73,7 +75,7 @@ pub fn get_stats_cmd() -> Result<Vec<(String, i64)>, String> {
 }
 
 #[tauri::command]
-pub fn undo_action_cmd(id: i64) -> Result<bool, String> {
+pub fn undo_action_cmd(id: i64, state: tauri::State<AppState>) -> Result<bool, String> {
     let db = get_db();
     let conn = db.lock().unwrap();
     let log: Option<(String, String)> = conn
@@ -87,6 +89,9 @@ pub fn undo_action_cmd(id: i64) -> Result<bool, String> {
     if let Some((source, dest)) = log {
         if !dest.is_empty() && std::path::Path::new(&dest).exists() {
             let _ = std::fs::rename(&dest, &source);
+            // Ignore this file for 5 seconds so the watcher doesn't re-process it
+            let mut ignored = state.ignored_files.lock().unwrap();
+            ignored.insert(source, Instant::now());
         }
         conn.execute("UPDATE action_logs SET undone=1 WHERE id=?1", [id])
             .map_err(|e| e.to_string())?;

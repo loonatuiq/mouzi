@@ -55,7 +55,7 @@ Auto-detects your Windows system language. Supported:
 
 *(Falls back to English if system language is not supported)*
 
-### �- Dark Mode
+### �- Dark Mode
 - Follows system theme, or force Light / Dark mode from settings
 
 ### 🔒 Privacy First
@@ -75,8 +75,8 @@ Auto-detects your Windows system language. Supported:
 **SHA-256 Checksums**
 
 ```
-Mouzi_0.1.0_x64-setup.exe: 2e169d20d02cd1bb8f424c4af7b28a2264a44ac838c2575871ac12e3f039066b
-Mouzi_0.1.0_x64_en-US.msi: 555676d199e8d7cac7b70703359e0a8387cf0400cf03a109eaf856d06815a701
+Mouzi_0.1.0_x64-setup.exe: f72f5aa127d635a773da0e9be60cec95a8084913a05572e67c01b4adfd063bbe
+Mouzi_0.1.0_x64_en-US.msi: c9b56b2ae3a5b572af01c27378224c2f85117194421c4543bf3b7a0a9cdfd7c3
 ```
 
 > ⚠️ **Windows 10/11 only.** Requires the [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2/) (pre-installed on most systems).
@@ -110,13 +110,13 @@ Downloads/Documents/{year}/{month}/
 
 ---
 
-## �-️ Architecture
+## �-️ Architecture
 
 ```
 ┌─────────────────────────────────────────────┐
 │  Frontend (React 19 + TypeScript + Tailwind) │
-│  ├── Popup window (300�-420, frameless)       │
-│  └── Settings window (900�-650)               │
+│  ├── Popup window (300�-420, frameless)       │
+│  └── Settings window (900�-650)               │
 ├─────────────────────────────────────────────┤
 │  Tauri 2.x Bridge                           │
 ├─────────────────────────────────────────────┤
