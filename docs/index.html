@@ -707,19 +707,55 @@
        ================================================================ */
     .smartscreen-notice {
       grid-column: span 2;
-      padding: 1rem 0 0;
+      padding: 0;
       border-top: 1px solid var(--border);
       background: transparent;
       border-radius: 0;
-      display: flex;
-      gap: 0.75rem;
       text-align: left;
+    }
+
+    .smartscreen-notice summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 0;
+      user-select: none;
+      transition: color 0.3s;
+    }
+
+    .smartscreen-notice summary:hover {
+      color: var(--primary);
+    }
+
+    .smartscreen-notice summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .smartscreen-notice summary::after {
+      content: '+';
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      transition: transform 0.3s var(--ease-out-expo);
+      font-weight: 300;
+      margin-left: auto;
+    }
+
+    .smartscreen-notice[open] summary::after {
+      transform: rotate(45deg);
+      color: var(--primary);
     }
 
     .smartscreen-icon {
       font-size: 1.1rem;
       flex-shrink: 0;
-      margin-top: 1px;
+    }
+
+    .smartscreen-summary-text {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text);
     }
 
     .smartscreen-content {
@@ -1227,12 +1263,14 @@
           <p class="download-desc">For IT administrators and managed deployments.</p>
           <a href="./download/Mouzi_0.1.0_x64_en-US.msi" class="btn-secondary" download>Download .msi</a>
         </div>
-        <div class="smartscreen-notice reveal">
-          <div class="smartscreen-icon">🛡️</div>
+        <details class="smartscreen-notice reveal">
+          <summary>
+            <span class="smartscreen-icon">🛡️</span>
+            <span class="smartscreen-summary-text">Windows may show a "Windows protected your PC" warning</span>
+          </summary>
           <div class="smartscreen-content">
-            <p class="smartscreen-title">Windows may show a "Windows protected your PC" warning</p>
             <p class="smartscreen-text">This happens because Mouzi is new and not yet signed with a code certificate
-              (which costs ~$400/year - not feasible for a free side project). Mouzi is <strong>100% open source and
+              (which costs ~$400/year — not feasible for a free side project). Mouzi is <strong>100% open source and
                 safe</strong>.</p>
             <p class="smartscreen-text">Mouzi is flagged by 3 heuristic engines (Arctic Wolf, SecureAge, Sophos)
               <strong>only because it's new and unsigned</strong>. None of them detect actual malware.
@@ -1242,14 +1280,14 @@
             <ol class="smartscreen-steps">
               <li>Click <strong>"More info"</strong> on the SmartScreen popup</li>
               <li>Click <strong>"Run anyway"</strong></li>
-              <li>Smile - your files are safe and private 🧹</li>
+              <li>Smile — your files are safe and private 🧹</li>
             </ol>
             <a href="https://www.virustotal.com/gui/file/2e169d20d02cd1bb8f424c4af7b28a2264a44ac838c2575871ac12e3f039066b"
               target="_blank" rel="noopener" class="smartscreen-link">
               🔍 View VirusTotal scan results →
             </a>
           </div>
-        </div>
+        </details>
       </div>
   </section>
 
