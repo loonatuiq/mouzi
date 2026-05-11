@@ -1079,6 +1079,12 @@
     /* ================================================================
        RESPONSIVE
        ================================================================ */
+    @media (max-width: 960px) {
+      .download-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 768px) {
 
       .nav-links,
@@ -1130,6 +1136,18 @@
 
       .download-grid {
         grid-template-columns: 1fr;
+      }
+
+      .download-option {
+        padding: 1.5rem;
+      }
+
+      .download-option h3 {
+        font-size: 1.25rem;
+      }
+
+      .download-meta {
+        word-break: break-all;
       }
 
       .hero-video {
