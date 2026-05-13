@@ -169,6 +169,9 @@ Output will be in `src-tauri/target/release/bundle/`.
 - [x] Dark mode
 - [x] History & undo
 - [x] Start with Windows (registry Run key)
+- [ ] `.mouziignore` - per-folder ignore patterns (like `.gitignore`)
+- [ ] Export/import rules as JSON (backup + sharing)
+- [ ] Portable version (single .exe, no installer)
 - [ ] Suggest mode (modal confirmation per file)
 - [ ] Local AI tagging (ONNX runtime for content classification)
 - [ ] Rule learning from user manual moves

@@ -42,3 +42,4 @@ Thumbs.db
 *.exe
 *.msi
 *.msix
+.kimi/
