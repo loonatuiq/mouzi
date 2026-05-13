@@ -37,7 +37,7 @@ Mouzi is a silent, elegant file organizer that lives in your system tray and kee
 ### 🛠️ Fully Customizable
 - Create your own rules with extensions, regex patterns, and destination folders
 - Use dynamic placeholders in paths: `{year}`, `{month}`, `{day}`, `{extension}`, `{filename}`
-- Reorder rules by priority — first match wins
+- Reorder rules by priority - first match wins
 
 ### 📜 History & Undo
 - Every action is logged locally in SQLite
@@ -58,8 +58,9 @@ Auto-detects your Windows system language. Supported:
 - Follows system theme, or force Light / Dark mode from settings
 
 ### 🔒 Privacy First
-- **100% offline** — zero cloud, zero file name uploads
+- **100% offline** - zero cloud, zero file name uploads
 - **No telemetry** by default
+- **System files ignored** - `desktop.ini`, `Thumbs.db`, `.DS_Store`, and other OS hidden files are never touched
 - All data stored locally in your user profile folder
 
 ---
@@ -86,7 +87,7 @@ Mouzi_0.1.0_x64_en-US.msi: b5cbc19b84469a977d5df56b856dc4b8c70cba7d7415925573737
 
 1. **Download & install** Mouzi using the installer above.
 2. Mouzi starts automatically and places an icon in your system tray (📂).
-3. **Left-click** the tray icon to open the popup — see recent actions, stats, and clean manually.
+3. **Left-click** the tray icon to open the popup - see recent actions, stats, and clean manually.
 4. **Right-click** the tray icon for the menu: `Clean Now`, `Settings`, `Quit`.
 5. Drop a file into your `Downloads` folder and watch it disappear into the right subfolder within 2 seconds.
 
@@ -112,19 +113,19 @@ Downloads/Documents/{year}/{month}/
 ## �-️ Architecture
 
 ```
-┌─────────────────────────────────────────────┐
-│  Frontend (React 19 + TypeScript + Tailwind) │
-│  ├── Popup window (300�-420, frameless)       │
-│  └── Settings window (900�-650)               │
-├─────────────────────────────────────────────┤
-│  Tauri 2.x Bridge                           │
-├─────────────────────────────────────────────┤
-│  Backend (Rust)                             │
-│  ├── File Watcher (notify crate)            │
-│  ├── Rules Engine                           │
-│  ├── SQLite Database (rusqlite)             │
-│  └── System Tray & Notifications            │
-└─────────────────────────────────────────────┘
++---------------------------------------------+
+|  Frontend (React 19 + TypeScript + Tailwind) |
+|  +- Popup window (300x420, frameless)        |
+|  +- Settings window (900x650)                |
++---------------------------------------------+
+|  Tauri 2.x Bridge                            |
++---------------------------------------------+
+|  Backend (Rust)                              |
+|  +- File Watcher (notify crate)              |
+|  +- Rules Engine                             |
+|  +- SQLite Database (rusqlite)               |
+|  +- System Tray & Notifications              |
++---------------------------------------------+
 ```
 
 ---
