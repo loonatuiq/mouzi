@@ -14,6 +14,9 @@ import {
   Check,
   ChevronLeft,
   RotateCcw,
+  Download,
+  ExternalLink,
+  Heart,
 } from "lucide-react";
 
 
@@ -357,77 +360,134 @@ export default function Settings() {
 
         {tab === "general" && (
           <div className="space-y-6 max-w-md">
-            <h2 className="text-lg font-semibold">{t("settings.general.title")}</h2>
-            <div>
-              <label className="text-sm font-medium text-text-muted block mb-2">
-                {t("settings.general.language")}
-              </label>
-              <select
-                value={settings?.language || "en"}
-                onChange={(e) => handleChangeLanguage(e.target.value)}
-                className="w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-primary"
-              >
-                <option value="en">English</option>
-                <option value="pl">Polski</option>
-                <option value="it">Italiano</option>
-                <option value="de">Deutsch</option>
-                <option value="fr">Français</option>
-              </select>
+            {/* Logo + tagline */}
+            <div className="flex items-center gap-3">
+              <img
+                src="/mouzilogo.png"
+                alt="Mouzi"
+                className="h-12 w-12 rounded-xl"
+              />
+              <div>
+                <h2 className="text-xl font-semibold">Mouzi</h2>
+                <p className="text-sm text-text-muted">Your downloads, tamed.</p>
+              </div>
             </div>
-            <div>
-              <label className="text-sm font-medium text-text-muted block mb-2">
-                {t("settings.general.theme")}
-              </label>
-              <select
-                value={settings?.theme || "system"}
-                onChange={(e) =>
-                  settings && saveSettings({ ...settings, theme: e.target.value })
-                }
-                className="w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-primary"
-              >
-                <option value="system">System</option>
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-              </select>
-            </div>
-            <div className="flex items-center justify-between pt-2">
-              <label className="text-sm font-medium text-text-muted">
-                {t("settings.general.startWithSystem")}
-              </label>
-              <button
-                onClick={() => setAutostart(!settings?.autostart)}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  settings?.autostart ? "bg-primary" : "bg-surface-dark"
-                }`}
-              >
-                <span
-                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                    settings?.autostart ? "translate-x-6" : "translate-x-1"
+
+            <p className="text-sm text-text-muted leading-relaxed">
+              Mouzi is a silent, elegant file organizer that lives in your system
+              tray and keeps your Downloads folder (and any other folder)
+              automatically tidy. It runs quietly in the background, monitors
+              selected folders, and moves, renames, or sorts files based on
+              customizable rules.
+            </p>
+
+            {/* Settings */}
+            <div className="space-y-4">
+              <div>
+                <label className="text-sm font-medium text-text-muted block mb-2">
+                  {t("settings.general.language")}
+                </label>
+                <select
+                  value={settings?.language || "en"}
+                  onChange={(e) => handleChangeLanguage(e.target.value)}
+                  className="w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-primary"
+                >
+                  <option value="en">English</option>
+                  <option value="pl">Polski</option>
+                  <option value="it">Italiano</option>
+                  <option value="de">Deutsch</option>
+                  <option value="fr">Français</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-sm font-medium text-text-muted block mb-2">
+                  {t("settings.general.theme")}
+                </label>
+                <select
+                  value={settings?.theme || "system"}
+                  onChange={(e) =>
+                    settings && saveSettings({ ...settings, theme: e.target.value })
+                  }
+                  className="w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-primary"
+                >
+                  <option value="system">System</option>
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </div>
+              <div className="flex items-center justify-between">
+                <label className="text-sm font-medium text-text-muted">
+                  {t("settings.general.startWithSystem")}
+                </label>
+                <button
+                  onClick={() => setAutostart(!settings?.autostart)}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                    settings?.autostart ? "bg-primary" : "bg-surface-dark"
                   }`}
-                />
+                >
+                  <span
+                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                      settings?.autostart ? "translate-x-6" : "translate-x-1"
+                    }`}
+                  />
+                </button>
+              </div>
+            </div>
+
+            {/* Links */}
+            <div className="space-y-2 pt-2 border-t border-border">
+              <button
+                onClick={() =>
+                  invoke("open_folder_cmd", { path: "https://mouzi.cc" })
+                }
+                className="flex w-full items-center gap-2 rounded-lg border border-border bg-surface px-4 py-2.5 text-sm font-medium text-text hover:bg-surface-hover transition-colors"
+              >
+                <Globe size={16} className="text-primary" />
+                Visit mouzi.cc
+                <ExternalLink size={14} className="ml-auto text-text-muted" />
+              </button>
+              <button
+                onClick={() =>
+                  invoke("open_folder_cmd", {
+                    path: "https://mouzi.cc/#download",
+                  })
+                }
+                className="flex w-full items-center gap-2 rounded-lg border border-border bg-surface px-4 py-2.5 text-sm font-medium text-text hover:bg-surface-hover transition-colors"
+              >
+                <Download size={16} className="text-primary" />
+                Check for Updates
+                <ExternalLink size={14} className="ml-auto text-text-muted" />
               </button>
             </div>
-            <div className="space-y-3 pt-4 border-t border-border">
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  invoke("open_folder_cmd", { path: "https://mouzi.cc" });
-                }}
+
+            {/* Author */}
+            <div className="pt-2 border-t border-border">
+              <button
+                onClick={() =>
+                  invoke("open_folder_cmd", { path: "https://github.com/hsr88" })
+                }
                 className="flex items-center gap-2 text-sm text-primary hover:underline"
               >
-                🌐 mouzi.cc
-              </a>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  invoke("open_folder_cmd", { path: "https://ko-fi.com/hsr" });
-                }}
-                className="inline-flex items-center gap-2 rounded-lg bg-[#ff5e5b] px-4 py-2 text-sm font-medium text-white hover:bg-[#e05451] transition-colors"
+                <ExternalLink size={16} />
+                github.com/hsr88
+              </button>
+              <p className="text-xs text-text-muted mt-1">Built with care by hsr</p>
+            </div>
+
+            {/* Ko-fi - big & bold */}
+            <div className="pt-4 border-t border-border text-center">
+              <button
+                onClick={() =>
+                  invoke("open_folder_cmd", { path: "https://ko-fi.com/hsr" })
+                }
+                className="inline-flex items-center gap-2 rounded-xl bg-[#ff5e5b] px-8 py-3 text-base font-semibold text-white shadow-lg shadow-[#ff5e5b]/20 hover:bg-[#e05451] hover:shadow-xl hover:shadow-[#ff5e5b]/30 hover:-translate-y-0.5 transition-all"
               >
-                ☕ Support Mouzi on Ko-fi
-              </a>
+                <Heart size={20} className="fill-white" />
+                Support Mouzi on Ko-fi
+              </button>
+              <p className="text-xs text-text-muted mt-3">
+                Your support keeps Mouzi improving. Thank you! 🙏
+              </p>
             </div>
           </div>
         )}
