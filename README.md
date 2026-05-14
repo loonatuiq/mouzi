@@ -39,6 +39,11 @@ Mouzi is a silent, elegant file organizer that lives in your system tray and kee
 - Use dynamic placeholders in paths: `{year}`, `{month}`, `{day}`, `{extension}`, `{filename}`
 - Reorder rules by priority - first match wins
 
+### 🚫 Ignore Rules (.mouziignore)
+- Per-folder ignore patterns — like `.gitignore` for your files
+- Set up via Settings UI or write a `.mouziignore` file manually
+- Supports wildcards (`*.tmp`), exact names (`.DS_Store`), and folders (`node_modules/`)
+
 ### 📜 History & Undo
 - Every action is logged locally in SQLite
 - Undo any single move with one click
@@ -61,6 +66,7 @@ Auto-detects your Windows system language. Supported:
 - **100% offline** - zero cloud, zero file name uploads
 - **No telemetry** by default
 - **System files ignored** - `desktop.ini`, `Thumbs.db`, `.DS_Store`, and other OS hidden files are never touched
+- **Portable version available** — run without installing, leaves no trace in the registry
 - All data stored locally in your user profile folder
 
 ---
