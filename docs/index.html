@@ -611,9 +611,9 @@
        ================================================================ */
     .download-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
-      max-width: 720px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
@@ -730,7 +730,7 @@
        SMARTSCREEN NOTICE
        ================================================================ */
     .smartscreen-notice {
-      grid-column: span 2;
+      grid-column: 1 / -1;
       padding: 0;
       border-top: 1px solid var(--border);
       background: transparent;
@@ -1401,6 +1401,13 @@
           <p class="download-meta">Mouzi_0.1.0_x64_en-US.msi &mdash; ~4.7 MB</p>
           <p class="download-desc">For IT administrators and managed deployments.</p>
           <a href="./download/Mouzi_0.1.0_x64_en-US.msi" class="btn-secondary" download>Download .msi</a>
+        </div>
+        <div class="download-option reveal delay-2">
+          <span class="download-tag">Power User</span>
+          <h3>Portable</h3>
+          <p class="download-meta">Mouzi_0.1.0_x64-portable.exe &mdash; ~14 MB</p>
+          <p class="download-desc">No install needed. Just download, run, and delete when done.</p>
+          <a href="./download/Mouzi_0.1.0_x64-portable.exe" class="btn-secondary" download>Download portable</a>
         </div>
         <details class="smartscreen-notice reveal">
           <summary>
