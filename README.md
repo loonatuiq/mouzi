@@ -25,6 +25,7 @@ Mouzi is a silent, elegant file organizer that lives in your system tray and kee
 - Runs 24/7 in the background with minimal resource usage (~5 MB RAM)
 - Automatically organizes new files as they arrive
 - Shows a subtle Windows toast notification with the count of organized files
+- Silent autostart with Windows
 
 ### 📁 Smart Rules Engine
 - **Images** (`.jpg`, `.png`, `.gif`, `.webp`...) → `Downloads/Images/`
@@ -66,7 +67,7 @@ Auto-detects your Windows system language. Supported:
 - **100% offline** - zero cloud, zero file name uploads
 - **No telemetry** by default
 - **System files ignored** - `desktop.ini`, `Thumbs.db`, `.DS_Store`, and other OS hidden files are never touched
-- **Portable version available** — run without installing, leaves no trace in the registry
+- **Portable version available** - run without installing, leaves no trace in the registry
 - All data stored locally in your user profile folder
 
 ---
